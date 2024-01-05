@@ -1,0 +1,232 @@
+body {
+  background-color: #032032;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/MacBook\ Pro\ 16_\ -\ 1.png");
+  color: azure;
+}
+@font-face {
+  font-family: "Phenomena";
+  src: url("phenomena/Phenomena-ExtraBold.otf") format("opentype"); /* Формат шрифта и его путь */
+  /* Дополнительные свойства, такие как font-weight и font-style, могут быть добавлены, чтобы определить различные варианты шрифта */
+}
+@font-face {
+  font-family: "Kanit";
+  src: url("Kanit/Kanit-Regular.ttf") format("truetype"); /* Формат шрифта и его путь */
+  /* Дополнительные свойства, такие как font-weight и font-style, могут быть добавлены, чтобы определить различные варианты шрифта */
+}
+.title-white {
+  font-family: "Phenomena";
+  margin-bottom: 40px;
+  margin-top: 20px;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.nik {
+  font-family: "Kanit";
+  font-size: 48px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.social-media {
+  font-family: "Phenomena";
+  font-size: 40px;
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  flex-direction: column;
+}
+.link-social {
+  color: #0352ff; /* цвет текста ссылки */
+  text-decoration: none;
+}
+.link-social:hover {
+  color: #002d91 !important; /* цвет текста ссылки */
+  text-decoration: none !important;
+}
+.link-social:focus {
+  color: #002d91 !important; /* цвет текста ссылки */
+  text-decoration: none !important;
+}
+
+.qr {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+.ava {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+}
+@keyframes roundandround {
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  background-color: #000000;
+}
+.scene {
+  width: 200px;
+  height: 200px;
+
+  perspective: 1000px;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  transform: rotateX(45deg) rotateY(45deg);
+  transform-style: preserve-3d;
+}
+.ball {
+  position: relative;
+  width: 70%;
+  height: 70%;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  animation: roundandround 7.5s 1.3s infinite linear;
+}
+.ball .ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 6px;
+  border-style: dashed;
+  border-radius: 50%;
+  opacity: 0;
+  animation: show 0.75s forwards ease-in-out;
+}
+.ring:nth-child(1) {
+  color: #e8f2fe;
+  transform: rotateY(4deg);
+  animation-delay: 0s;
+}
+.ring:nth-child(2) {
+  color: #e8f2fe;
+  transform: rotateY(8deg);
+  animation-delay: 0.1s;
+}
+.ring:nth-child(3) {
+  color: #c0e0ff;
+  transform: rotateY(12deg);
+  animation-delay: 0.2s;
+}
+.ring:nth-child(4) {
+  color: #c0e0ff;
+  transform: rotateY(16deg);
+  animation-delay: 0.3s;
+}
+.ring:nth-child(5) {
+  color: #a7d2fc;
+  transform: rotateY(20deg);
+  animation-delay: 0.4s;
+}
+.ring:nth-child(6) {
+  color: #a7d2fc;
+  transform: rotateY(24deg);
+  animation-delay: 0.5s;
+}
+.ring:nth-child(7) {
+  color: #54c1ff;
+  transform: rotateY(28deg);
+  animation-delay: 0.6s;
+}
+.ring:nth-child(8) {
+  color: #54c1ff;
+  transform: rotateY(32deg);
+  animation-delay: 0.7s;
+}
+.ring:nth-child(9) {
+  color: #2eb0fa;
+  transform: rotateY(36deg);
+  animation-delay: 0.8s;
+}
+.ring:nth-child(10) {
+  color: #2eb0fa;
+  transform: rotateY(40deg);
+  animation-delay: 0.9s;
+}
+.ring:nth-child(11) {
+  color: #3b92c4;
+  transform: rotateY(44deg);
+  animation-delay: 1s;
+}
+.ring:nth-child(12) {
+  color: #3b92c4;
+  transform: rotateY(48deg);
+  animation-delay: 1.1s;
+}
+.ring:nth-child(13) {
+  color: #2288c3;
+  transform: rotateY(52deg);
+  animation-delay: 1s;
+}
+.ring:nth-child(14) {
+  color: #2288c3;
+  transform: rotateY(56deg);
+  animation-delay: 0.9s;
+}
+.ring:nth-child(15) {
+  color: #2a6a8f;
+  transform: rotateY(60deg);
+  animation-delay: 0.8s;
+}
+.ring:nth-child(16) {
+  color: #2a6a8f;
+  transform: rotateY(64deg);
+  animation-delay: 0.7s;
+}
+.ring:nth-child(17) {
+  color: #16638f;
+  transform: rotateY(68deg);
+  animation-delay: 0.6s;
+}
+.ring:nth-child(18) {
+  color: #16638f;
+  transform: rotateY(72deg);
+  animation-delay: 0.5s;
+}
+.ring:nth-child(19) {
+  color: #194a66;
+  transform: rotateY(76deg);
+  animation-delay: 0.4s;
+}
+.ring:nth-child(20) {
+  color: #194a66;
+  transform: rotateY(80deg);
+  animation-delay: 0.3s;
+}
+.ring:nth-child(21) {
+  color: #0b405f;
+  transform: rotateY(84deg);
+  animation-delay: 0.2s;
+}
+.ring:nth-child(22) {
+  color: #032032;
+  transform: rotateY(88deg);
+  animation-delay: 0.1s;
+}
+.ring:nth-child(23) {
+  color: #032032;
+  transform: rotateY(92deg);
+  animation-delay: 0s;
+}
