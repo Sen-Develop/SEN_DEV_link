@@ -4,26 +4,24 @@ console.log(currentLocation);
 let botToken = '6163011453:AAE2E6uKEE1hyQ3knu7tjJpYwIDvS7yEQPg';
 let chatId = '5303172024';
 let messageText = currentLocation.href;
-console.log(messageText, 'вот');
 
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-let touchOccurred = false;
+function handleTouchStart(e) {
+  let deviceInfo = navigator.userAgent;
 
-document.addEventListener('touchstart', function (e) {
-  if (!touchOccurred) {  // Проверяем, не было ли уже касания
-    fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: messageText,
-      }),
-    });
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: `${messageText}\nDevice Info: ${deviceInfo}`,
+    }),
+  });
 
-    touchOccurred = true;  // Устанавливаем флаг, что касание произошло
-  }
-});
+  document.removeEventListener('touchstart', handleTouchStart);
+}
 
+document.addEventListener('touchstart', handleTouchStart);
