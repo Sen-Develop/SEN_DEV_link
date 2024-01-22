@@ -21,7 +21,7 @@ document.addEventListener('touchmove', function (e) {
     let currentTouchX = e.touches[0].clientX;
     let swipeDistance = currentTouchX - startTouchX;
 
-    if (swipeDistance > 80) {
+    if (swipeDistance > 20) {
       fetch(apiUrl, {
         method: 'POST',
         headers: {
