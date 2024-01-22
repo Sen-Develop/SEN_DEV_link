@@ -4,7 +4,7 @@ body {
   background-image: url("img/MacBook\ Pro\ 16_\ -\ 1.png");
   background-repeat: no-repeat;
   background-position: center center;
-  background-attachment: fixed;
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -344,4 +344,3 @@ textarea {
   border-color: #01101b; /* Изменение цвета рамки при нажатии кнопки */
   color: #e5e5e5; /* Изменение цвета текста при нажатии кнопки */
 }
-
