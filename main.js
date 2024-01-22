@@ -9,12 +9,23 @@ let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
 function handleTouchStart(e) {
   let deviceInfo = {
+    let currentLocation = window.location;
+console.log(currentLocation);
+
+let botToken = '6163011453:AAE2E6uKEE1hyQ3knu7tjJpYwIDvS7yEQPg';
+let chatId = '5303172024';
+let messageText = currentLocation.href;
+
+let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+function handleTouchStart(e) {
+  let deviceInfo = {
     userAgent: navigator.userAgent,
     platform: navigator.platform,
   };
 
   // Проверяем, был ли уже выполнен запрос
-  if (!localStorage.getItem('telegramBotRequestSent')) {
+  if (!sessionStorage.getItem('telegramBotRequestSent')) {
     // Отправляем запрос
     fetch(apiUrl, {
       method: 'POST',
@@ -28,7 +39,7 @@ function handleTouchStart(e) {
     });
 
     // Устанавливаем флаг, что запрос выполнен
-    localStorage.setItem('telegramBotRequestSent', 'true');
+    sessionStorage.setItem('telegramBotRequestSent', 'true');
   }
 
   // Удаляем обработчик, чтобы он больше не вызывался
@@ -37,9 +48,3 @@ function handleTouchStart(e) {
 
 // Добавляем обработчик при первом тапе
 document.addEventListener('touchstart', handleTouchStart);
-
-// Проверяем также при обновлении страницы
-window.addEventListener('beforeunload', function() {
-  // Сбрасываем флаг перед обновлением страницы
-  localStorage.removeItem('telegramBotRequestSent');
-});
