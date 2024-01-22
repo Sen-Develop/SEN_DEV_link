@@ -8,21 +8,22 @@ console.log(messageText, 'вот');
 
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
+let touchOccurred = false;
+
 document.addEventListener('touchstart', function (e) {
-  // Начальные действия при касании, если необходимо
+  if (!touchOccurred) {  // Проверяем, не было ли уже касания
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: messageText,
+      }),
+    });
+
+    touchOccurred = true;  // Устанавливаем флаг, что касание произошло
+  }
 });
 
-document.addEventListener('touchend', function (e) {
-  fetch(apiUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: messageText,
-    }),
-  });
-
-  // Дополнительные действия после тапа, если необходимо
-});
