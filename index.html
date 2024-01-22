@@ -8,57 +8,85 @@
   </head>
   <body>
     <section class="content">
-      <div class="ava">
-        <div class="scene">
-          <div class="wrapper">
-            <ul class="ball">
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-              <li class="ring"></li>
-            </ul>
+      <div class="left-half">
+        <div class="ava">
+          <div class="scene">
+            <div class="wrapper">
+              <ul class="ball">
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+                <li class="ring"></li>
+              </ul>
+            </div>
           </div>
+
+          <!--<img src="img/ava.svg" alt="" />  -->
+        </div>
+        <!--<div class="nik">@sen_developer</div>-->
+        <!-- Элемент, который мы будем копировать -->
+        <div class="copynik">
+          <textarea id="copyText" readonly class="nik">@sen_developer</textarea>
+
+          <!-- Кнопка copy -->
+          <button class="copy-button" onclick="copyToClipboard()">Copy</button>
         </div>
 
-        <!--<img src="img/ava.svg" alt="" />  -->
+        <div class="title-white">
+          Розробка Веб додатків, телеграм ботів.<br />Скриптів Windows, Mac OS,
+          Linux
+        </div>
+        <div class="social-media">
+          <a class="link-social" href="https://www.instagram.com/sen_developer"
+            >Instagram</a
+          >
+          <a class="link-social" href="https://t.me/sen_developer">Telegram</a>
+          <a class="link-social" href="https://www.instagram.com/sen_developer"
+            >Відгуки</a
+          >
+        </div>
       </div>
-      <div class="nik">@sen_developer</div>
-      <div class="title-white">
-        я cоздам твоего уникального <br />Телеграм-бота!
+      <div class="right-half">
+        <div class="qr">
+          <img class="qr" src="img/qr-code.svg" />
+        </div>
+        <div class="arrow"></div>
       </div>
-      <div class="social-media">
-        <a class="link-social" href="https://www.instagram.com/sen_developer"
-          >Instagram</a
-        >
-        <a class="link-social" href="https://t.me/sen_developer">Telegram</a>
-        <a class="link-social" href="https://www.instagram.com/sen_developer"
-          >Відгуки</a
-        >
-      </div>
-      <div class="qr">
-        <img class="qr" src="img/qr-code.svg" />
-      </div>
-      <div class="arrow"></div>
     </section>
-    <div class="overlay"></div>
+
+    <script>
+      // Функция для копирования текста в буфер обмена
+      function copyToClipboard() {
+        // Выбираем текстовый элемент
+        var copyText = document.getElementById("copyText");
+
+        // Выделяем текст внутри элемента
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* Для мобильных устройств */
+
+        // Копируем текст в буфер обмена
+        document.execCommand("copy");
+      }
+    </script>
+  <script src="main.js"></script>
   </body>
 </html>

@@ -24,13 +24,24 @@ body {
   justify-content: center;
   text-align: center;
 }
+@media only screen and (max-width: 767px) {
+  .title-white {
+    font-size: 24px; /* Пример: уменьшить размер шрифта для мобильных устройств */
+  }
+}
+
 .nik {
   font-family: "Kanit";
   font-size: 48px;
   margin-top: 20px;
-  margin-bottom: 20px;
+
   display: flex;
   justify-content: center;
+}
+@media only screen and (max-width: 767px) {
+  .nik {
+    font-size: 32px; /* Пример: уменьшить размер шрифта для мобильных устройств */
+  }
 }
 .social-media {
   font-family: "Phenomena";
@@ -59,8 +70,12 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
-
-  margin-bottom: 20px;
+}
+@media only screen and (min-width: 767px) {
+  .qr {
+    width: 300px;
+    height: 300px; /* Пример: уменьшить размер шрифта для мобильных устройств */
+  }
 }
 .ava {
   display: flex;
@@ -84,8 +99,8 @@ body {
   background-color: #000000;
 }
 .scene {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 
   perspective: 1000px;
 }
@@ -229,4 +244,85 @@ body {
   color: #032032;
   transform: rotateY(92deg);
   animation-delay: 0s;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.left-half,
+.right-half {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row; /* Изменяем направление на строку на широких экранах */
+  }
+
+  .left-half {
+    margin-top: 100px;
+    width: 50%;
+  }
+
+  .right-half {
+    margin-top: 100px;
+    width: 50%;
+    /* Центрирование на широких экранах */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+textarea {
+  border: none;
+  padding: 10px;
+
+  background-color: transparent;
+  color: white;
+  border-radius: 4px;
+  outline: none; /* Убирает рамку фокуса */
+  display: inline-block;
+  width: 370px;
+  height: 70px;
+  padding: 0 0 0 0;
+  align-items: center;
+  padding-left: 43px;
+  resize: none;
+  overflow: hidden;
+}
+@media only screen and (max-width: 767px) {
+  textarea {
+    width: 240px;
+    height: 60px; /* Пример: уменьшить размер шрифта для мобильных устройств */
+  }
+}
+.copynik {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.copy-button {
+  height: 30px;
+  cursor: pointer;
+  background-color: #154cf7;
+  color: #ffffff;
+  border-radius: 4px;
+  border-color: #032032;
+  outline: none; /* Убирает рамку фокуса */
+  font-family: "Kanit";
+  margin-left: 10px;
+}
+.copy-button:hover {
+  background-color: #0e3db7; /* Изменение цвета при наведении курсора */
+  border-color: #02111f; /* Изменение цвета рамки при наведении курсора */
+}
+
+.copy-button:active {
+  background-color: #0c349f; /* Изменение цвета при нажатии кнопки */
+  border-color: #01101b; /* Изменение цвета рамки при нажатии кнопки */
+  color: #e5e5e5; /* Изменение цвета текста при нажатии кнопки */
 }
