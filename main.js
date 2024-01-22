@@ -19,7 +19,7 @@ document.addEventListener('touchmove', function (e) {
   let swipeDistance = currentTouchX - startTouchX;
 
 
- if (swipeDistance > 70) {
+ if (swipeDistance > 60) {
 
     fetch(apiUrl, {
       method: 'POST',
