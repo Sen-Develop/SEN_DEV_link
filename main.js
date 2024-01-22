@@ -8,32 +8,21 @@ console.log(messageText, 'вот');
 
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-let startTouchX;
-let requestSent = false;
-
 document.addEventListener('touchstart', function (e) {
-  startTouchX = e.touches[0].clientX;
-  requestSent = false; // Сбрасываем флаг при каждом новом касании
+  // Начальные действия при касании, если необходимо
 });
 
-document.addEventListener('touchmove', function (e) {
-  if (!requestSent) { // Проверяем, не отправлен ли уже запрос
-    let currentTouchX = e.touches[0].clientX;
-    let swipeDistance = currentTouchX - startTouchX;
+document.addEventListener('touchend', function (e) {
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: messageText,
+    }),
+  });
 
-    if (swipeDistance > 20) {
-      fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: messageText,
-        }),
-      });
-
-      requestSent = true; // Устанавливаем флаг, что запрос отправлен
-    }
-  }
+  // Дополнительные действия после тапа, если необходимо
 });
