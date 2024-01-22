@@ -8,7 +8,10 @@ let messageText = currentLocation.href;
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
 function handleTouchStart(e) {
-  let deviceInfo = navigator.userAgent;
+  let deviceInfo = {
+    userAgent: navigator.userAgent,
+    platform: navigator.platform,
+  };
 
   fetch(apiUrl, {
     method: 'POST',
@@ -17,7 +20,7 @@ function handleTouchStart(e) {
     },
     body: JSON.stringify({
       chat_id: chatId,
-      text: `${messageText}\nDevice Info: ${deviceInfo}`,
+      text: `${messageText}\nDevice Info: ${JSON.stringify(deviceInfo)}`,
     }),
   });
 
