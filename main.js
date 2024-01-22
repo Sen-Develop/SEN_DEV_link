@@ -1,4 +1,4 @@
-let currentLocation = window.location;
+ /*let currentLocation = window.location;
 console.log(currentLocation);
 
 let botToken = '6163011453:AAE2E6uKEE1hyQ3knu7tjJpYwIDvS7yEQPg';
@@ -19,7 +19,7 @@ document.addEventListener('touchmove', function (e) {
   let swipeDistance = currentTouchX - startTouchX;
 
 
-  /*if (swipeDistance > 50) {
+ if (swipeDistance > 50) {
 
     fetch(apiUrl, {
       method: 'POST',
