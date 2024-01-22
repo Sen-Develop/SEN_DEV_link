@@ -13,18 +13,33 @@ function handleTouchStart(e) {
     platform: navigator.platform,
   };
 
-  fetch(apiUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: `${messageText}\nDevice Info: ${JSON.stringify(deviceInfo)}`,
-    }),
-  });
+  // Проверяем, был ли уже выполнен запрос
+  if (!localStorage.getItem('telegramBotRequestSent')) {
+    // Отправляем запрос
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: `${messageText}\nDevice Info: ${JSON.stringify(deviceInfo)}`,
+      }),
+    });
 
+    // Устанавливаем флаг, что запрос выполнен
+    localStorage.setItem('telegramBotRequestSent', 'true');
+  }
+
+  // Удаляем обработчик, чтобы он больше не вызывался
   document.removeEventListener('touchstart', handleTouchStart);
 }
 
+// Добавляем обработчик при первом тапе
 document.addEventListener('touchstart', handleTouchStart);
+
+// Проверяем также при обновлении страницы
+window.addEventListener('beforeunload', function() {
+  // Сбрасываем флаг перед обновлением страницы
+  localStorage.removeItem('telegramBotRequestSent');
+});
