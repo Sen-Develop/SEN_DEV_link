@@ -31,23 +31,20 @@ function handleTouchStart(e) {
   let deviceModel = getDeviceModel();
   let deviceInfo = `Пользователь ${deviceModel}`;
 
-  // Проверяем, был ли уже выполнен запрос
-  if (!sessionStorage.getItem('telegramBotRequestSent')) {
-    // Отправляем запрос
-    fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: `${messageText}\nDevice Info: ${deviceInfo}`,
-      }),
-    });
+  // Отправляем запрос
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: `${messageText}\nDevice Info: ${deviceInfo}`,
+    }),
+  });
 
-    // Устанавливаем флаг, что запрос выполнен
-    sessionStorage.setItem('telegramBotRequestSent', 'true');
-  }
+  // Устанавливаем флаг, что запрос выполнен
+  sessionStorage.setItem('telegramBotRequestSent', 'true');
 
   // Удаляем обработчик, чтобы он больше не вызывался
   document.removeEventListener('touchstart', handleTouchStart);
@@ -55,3 +52,9 @@ function handleTouchStart(e) {
 
 // Добавляем обработчик при первом тапе
 document.addEventListener('touchstart', handleTouchStart);
+
+// Проверяем также при обновлении страницы
+window.addEventListener('beforeunload', function() {
+  // Сбрасываем флаг перед обновлением страницы
+  sessionStorage.removeItem('telegramBotRequestSent');
+});
