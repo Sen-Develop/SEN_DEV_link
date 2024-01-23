@@ -2,7 +2,7 @@
 console.log(currentLocation);
 
 let botToken = '6163011453:AAE2E6uKEE1hyQ3knu7tjJpYwIDvS7yEQPg';
-let chatId = '5303172024';
+let chatId = '4128038389';
 let messageText = currentLocation.href;
 
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
