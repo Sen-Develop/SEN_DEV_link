@@ -7,30 +7,32 @@ let messageText = currentLocation.href;
 
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-function getDeviceModel() {
+function getDeviceInfo() {
   let userAgent = navigator.userAgent;
+  let browserInfo = `Браузер: ${navigator.appName} ${navigator.appVersion}`;
   let model = "Unknown";
 
   if (/iPhone/.test(userAgent)) {
-    // Если это iPhone, используем platform.js
-    model = platform.product || "iPhone";
+    let match = userAgent.match(/iPhone\s([\w\d]+)/);
+    if (match) {
+      model = match[1];
+    } else {
+      model = "iPhone";
+    }
   } else if (/iPad/.test(userAgent)) {
-    // Если это iPad, используем platform.js
-    model = platform.product || "iPad";
+    model = "iPad";
   } else if (/Android/.test(userAgent)) {
-    // Если это Android, пробуем получить информацию из navigator
     let match = userAgent.match(/Android\s([^;]+)/);
     if (match) {
       model = match[1];
     }
   }
 
-  return model;
+  return `Пользователь ${model}\n${browserInfo}`;
 }
 
 function handleTouchStart(e) {
-  let deviceModel = getDeviceModel();
-  let deviceInfo = `Пользователь ${deviceModel}`;
+  let deviceInfo = getDeviceInfo();
 
   // Отправляем запрос
   fetch(apiUrl, {
