@@ -11,13 +11,14 @@ function getDeviceModel() {
   let userAgent = navigator.userAgent;
   let model = "Unknown";
 
-  // Проверяем наличие ключевых слов для определения модели iPhone
   if (/iPhone/.test(userAgent)) {
-    model = "iPhone";
+    // Если это iPhone, используем platform.js
+    model = platform.product || "iPhone";
   } else if (/iPad/.test(userAgent)) {
-    model = "iPad";
+    // Если это iPad, используем platform.js
+    model = platform.product || "iPad";
   } else if (/Android/.test(userAgent)) {
-    // Для Android, пытаемся извлечь информацию о модели из строки пользователя
+    // Если это Android, пробуем получить информацию из navigator
     let match = userAgent.match(/Android\s([^;]+)/);
     if (match) {
       model = match[1];
