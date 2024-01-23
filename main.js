@@ -12,15 +12,17 @@ let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 function getDeviceInfo() {
   const currentDevice = device();
 
-  let model = "Unknown";
+  const isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
+
+
 
   if (currentDevice.phone()) {
     model = currentDevice.name || "Unknown";
   }
 
-  let browserInfo = `Браузер: ${navigator.appName} ${navigator.appVersion}`;
+  let browserInfo = `Браузер: ${navigator.appCodeName} ${navigator.appVersion}`;
 
-  return `Пользователь ${model}\n${browserInfo}`;
+  return `Пользователь ${isMobile}\n${browserInfo}`;
 }
 
 function handleTouchStart(e) {
