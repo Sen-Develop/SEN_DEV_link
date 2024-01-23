@@ -12,7 +12,7 @@ function getDeviceInfo() {
   let deviceModel =  ;
   let browserInfo = `Браузер: ${navigator.userAgent.indexOf} `;
 
-  return `Пользователь ${deviceModel}\n${browserInfo}`;
+  return `Пользователь ${browserInfo}`;
 }
 
 function handleTouchStart(e) {
