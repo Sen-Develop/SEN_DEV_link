@@ -10,7 +10,7 @@ let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
 function getDeviceInfo() {
   let deviceModel = navigator.userAgent.toLowerCase().match(/mobile/i);
-  let browserInfo = `Браузер: ${navigator.appCodeName} ${navigator.appVersion}`;
+  let browserInfo = `Браузер: ${navigator.appCodeName} `;
 
   return `Пользователь ${deviceModel}\n${browserInfo}`;
 }
